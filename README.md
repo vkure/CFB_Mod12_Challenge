@@ -1,13 +1,13 @@
-# CFB Module 12 Challenge
-# Credit Report
+# CFB Module 12 Challenge: Credit Report
+
 
 ## Overview
 
 The goal of the challenge is to build a machine learning model to determine the credit-worthiness of borrowers.  Due to the fact that the credit data is very imbalanced (very few risky loans), a re-sampling of data allows for a more accurate model.  The purpose of the analysis is to compare and evaulate the logistic regression models trained with the original and re-sampled data.
 
-The financial information was based on loans for borrowers.  The features for each loan included:  loan size, interest rate, borrower income, debt-to-income ratio, number of accounts, deragotary marks, and total_debt.
+The financial information provided was based on historical loans for borrowers.  The features for each loan included:  loan size, interest rate, borrower income, debt-to-income ratio, number of accounts, deragotary marks, and total_debt.
 
-The variable to predict is whether an inputted loan would remain healthy or be at risk of default; this was a binary output.  The data set had 75036 healthy loans and 2500 risky loans, so the proportion of risky loans is very low.
+The variable to predict is whether an inputted loan would remain healthy or be at risk of default; this was a binary output of healthy or risky.  The data set had 75036 healthy loans and 2500 risky loans, so the proportion of risky loans was very low.
 
 The analysis had several steps:
 * splitting the data into training and testing sets
@@ -27,20 +27,38 @@ The re-sampling method utilized was random oversampling.
     * Precision: 1.00 Healthy and 0.85 Risky
     * Recall: 0.99 Healthy and 0.91 Risky
 
+![Model 1 Classification Report](Images/OriginalDataClassification.PNG)
+
+
 * Machine Learning Model 2 (Re-Sampled Data):
     * Accuracy: 0.99 Healthy and 0.99 Risky
     * Precision: 1.00 Healthy and 0.84 Risky
     * Recall:  0.99 Healthy and 0.99 Risky
 
+![Model 2 Classification Report](Images/RebalancedDataClassification.PNG)
+
 
 ## Summary
 
- The model fit with re-sampled data (Model 2) had better performance than the model fit with the original data (Model 1).  This is first supported by the fact that Model 2 had an accuracy score of 0.99, compared to 0.91 for Model 1.  Secondly, there is an extra importance placed on correctly identify risky borrowers because that is where potential losses might occur.  In this case, Model 2 had a much higher recall for risky borrowers. 
+ The model fit with re-sampled data (Model 2) had better performance than the model fit with the original data (Model 1).  The data set is imbalanced so the most important metric is not overall accuracy.  In this case, there is an extra importance placed on correctly identifying risky borrowers, the minority class, because that is where large potential losses might occur.  Thus, the relevant metric would be "Recall" for risky borrowers so that loans are not made to potential defaulters.  Model 2 had a much higher Recall for risky borrowers, .99 v. .91.
 
- While Model 1 had a slightly higher precision, a lower precision for Model 2 would only result in a small amount of missed business.  However, the much higher recall of Model 2 would prevent costly losses from lending to potentially defaulting borrowers.  
+ While Model 1 had a slightly higher Precision for risky borrowers, a lower Precision for Model 2 would only result in a small amount of missed business.  However, the much higher Recall of Model 2 would prevent costly losses from lending to potentially defaulting borrowers.  Thus, I would recommend the Model 2 (based on re-sampled data) because of this significaintly higher Recall of risky borrowers.
 
- ## Technology
+## Technology
 
- This analysis requires the use of the following packages:
+ This application was written in Python 3.7 and requires the use of the following packages:
 
- 
+*[Pandas] (https://github.com/pandas) - Data Analysis
+
+*[Numpy] (https://github.com/numpy) - Array Processing
+
+*[SKLearn] (https://github.com/scikit-learn) - Advanced Data Anaylsis and Machine Learning: Accuracy Score, Confusion Matrix, Imbalanced Classification Report
+
+*[Path] (https://github.com/path) - CSV File Reading
+
+## Contributors
+Vishnu Kurella, vishnu.kurella@gmail.com
+
+## License
+VK.LQA 2021
+
