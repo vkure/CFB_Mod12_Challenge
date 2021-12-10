@@ -42,7 +42,7 @@ The re-sampling method utilized was random oversampling.
 
  The model fit with re-sampled data (Model 2) had better performance than the model fit with the original data (Model 1).  The data set is imbalanced so the most important metric is not overall accuracy.  In this case, there is an extra importance placed on correctly identifying risky borrowers, the minority class, because that is where large potential losses might occur.  Thus, the relevant metric would be "Recall" for risky borrowers so that loans are not made to potential defaulters.  Model 2 had a much higher Recall for risky borrowers, .99 v. .91.
 
- While Model 1 had a slightly higher Precision for risky borrowers, the lower Precision for Model 2 would only result in a small amount of missed business.  However, Model 2's much higher Recall of risky borrowers would prevent costly losses from lending to potentially defaulting borrowers.  To top it off, Model 2 also had higher accuracy for both classes of borrowers.  To conclude, I would recommend the Model 2 (based on re-sampled data), mainly because of the significaintly higher Recall of risky borrowers.
+ While Model 1 had a slightly higher Precision for risky borrowers, the lower Precision for Model 2 would only result in a small amount of missed business.  However, Model 2's much higher Recall of risky borrowers would prevent costly losses from lending to potentially defaulting borrowers.  To top it off, Model 2 also had higher accuracy for both classes of borrowers.  To conclude, I would recommend the Model 2 (based on re-sampled data), mainly because of the significantly higher Recall of risky borrowers.
 
 ## Technology
 
